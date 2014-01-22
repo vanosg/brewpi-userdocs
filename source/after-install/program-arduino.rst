@@ -15,7 +15,7 @@ Uploading a new HEX file to your Arduino
 
 To program your Arduino from the web interface, take the following steps:
 
-#.  Make sure the BrewPi script is running. If it is not started by CRON, start it with:
+#. Log on to your BrewPi web interface by entering the Raspberry Pi's IP address into a web browser. (This is displayed when the installer finishes, or by typing ``ifconfig`` at a command prompt). If the web page does not come up, try manually starting it from the Raspberry Pi command line with:
 
     .. code-block:: bash
 
