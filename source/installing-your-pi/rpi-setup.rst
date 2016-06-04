@@ -1,10 +1,14 @@
 Basic configuration of your Raspberry Pi
 ========================================
-This step by step guide will help you to set everything up on your Raspberry Pi and Arduino.
+This step by step guide will help you to set everything up on your Raspberry Pi and Arduino, Spark, or Photon.
 
 Installing Linux on your Raspberry Pi
 -------------------------------------
-The easiest cross-platform way to install Linux on your Raspberry Pi is using the NOOBS installer.
+In most cases, the Raspberry Pi comes with an SD card pre-loaded with NOOBS, which lets you select an operating system to install. If your Pi did not come with NOOBS already loaded on it, please follow section 1.1.1 . Otherwise, please proceed to 1.2 .
+
+Installing NOOBS/Rasbpian from scratch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If your Pi came with an SD card with NOOBS already on it (or the OS of your choice), you can skip this section.
 
 #. Go to the `Raspberry Pi download page <http://www.raspberrypi.org/downloads>`_
 #. Download the NOOBS zip file.
@@ -13,7 +17,6 @@ The easiest cross-platform way to install Linux on your Raspberry Pi is using th
 #. Extract the contents of the NOOBS zip file to your SD card.
 #. Put the SD card in your Raspberry Pi and boot it.
 #. You will get a menu to choose which OS you want to install, choose Raspbian.
-
 
 Windows users can also use `Win32DiskImager <http://www.softpedia.com/get/CD-DVD-Tools/Data-CD-DVD-Burning/Win32-Disk-Imager.shtml>`_
 to write the image to the SD card. If you have an old image on your card and cannot remove the partition with Windows,
@@ -26,7 +29,8 @@ You can change the password in the next step.
 
 Configuring your system
 -----------------------
-SSH is enabled by default in the image you installed.
+If you installed Raspbian, SSH is enabled by default in the image you installed. The default login credentials for the image are username ``pi`` and password ``raspberry``. 
+
 If you have an Ethernet cable connected, you may SSH into the Pi to begin your configuration.
 The wired ethernet port is set to receive a dynamic IP address using DHCP. To find out which IP it got, use your router's web interface.
 
@@ -45,8 +49,7 @@ If the basic system settings menu doesn't come up automatically, type:
 Setting up WiFi
 ---------------
 
-I am using an Edimax EW-7811un WiFi dongle. The latest image has built in support for this dongle. I can highly recommend this dongle.
-The dongle is based on a Realtek 8192CU or 8188CUS, but the 8192cu driver that ships with Raspbian works for both.
+Older Raspberry Pi models require a USB WiFi dongle for wireless networking (I am using an Edimax EW-7811un WiFi dongle, I can highly recommend it). The newer Raspberry Pi 3's have integrated WiFi capabilities and do not require a USB WiFi dongle. 
 
 To improve the stability of your WiFi, it is recommended to disable power management:
 
@@ -72,7 +75,7 @@ And add this line (replace the IP with your routers IP address, the standard gat
 
 .. code-block:: bash
 
-    * * * * * ping -c 1 192.168.0.1
+    * * * * * ping -c 1 192.168.X.X
 
 
 Setting up a static IP address
@@ -103,7 +106,7 @@ My /etc/network/interfaces file looks like this:
 
 The right IP addresses depend on your home network setup.
 You can run ifconfig before editing the interfaces and write the automatically assigned addresses down.
-However, it is recommended to pick a static Ip address that is outside of your router's DHCP range.
+It is recommended to pick a static IP address that is outside of your router's DHCP range (for example, if your router normally assigns IPs that start around 192.168.1.5, pick a higher last number, such as 192.168.1.200)
 
 Finally, you will need to restart your network interfaces for these changes to occur:
 

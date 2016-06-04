@@ -13,8 +13,8 @@ Install and update scripts are available to do most of the work for you. After f
 If you really want to, you can still do your setup manually or just check the manual setup guide to see what the install script will do for you.
 
 .. toctree::
-    :maxdepth: 2
-    :numbered: 2
+    :maxdepth: 3
+    :numbered: 3
 
     installing-your-pi/rpi-setup
     automated-brewpi-install/automated-brewpi-install.rst
