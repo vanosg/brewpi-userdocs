@@ -3,17 +3,13 @@ Configuring your devices
 
 Since BrewPi 0.2, the hardware setup is dynamic and flexible: you can install and uninstall hardware from the web interface. This is all done from the `Device Configuration` tab in the web interface. From the device manager you can assign hardware (temp sensors, SSRs, etc.) to functions.
 
-The current implementation of the device manager is a bit complicated and basic, but we are working on a more user friendly interface. I hope that this document will help you set it up.
+The current implementation of the device manager is a bit complicated and basic, but we are working on a more user friendly interface. This document will help you set it up.
 
-Your devices just after programming
------------------------------------
-If you have just uploaded a HEX file to your Arduino and the EEPROM was reset, it will depend on your shield version which devices are already installed.
-
-RevC shields
+Arduino RevC shields
 ^^^^^^^^^^^^
 For RevC shields no devices are installed by default.
 
-RevA shields
+Arduino RevA shields
 ^^^^^^^^^^^^^
 For RevA shields your devices are set up just like they were in version 0.1 for backwards compatibility. A heater, cooler and door switch are already installed. Also, 2 temperature sensors are installed as 'First device on bus'. You will notice that the 2 temperature sensors are also listed under `Detected devices`, based on their address.
 
@@ -21,7 +17,7 @@ If you would like to switch from 'First device on bus' to address based assignme
 
 Receiving the device list
 -------------------------
-Click `Refresh device list` to receive an updated list of installed and detected devices from the Arduino. To be able to receive the device list, the BrewPi script has to be running.
+Click `Refresh device list` to receive an updated list of installed and detected devices from the controller. To be able to receive the device list, the BrewPi script has to be running.
 
 Installed Devices
 ^^^^^^^^^^^^^^^^^
